@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t,cs;
+    cin>>t;
+    for(cs=1;cs<=t;cs++)
+    {
+        long long p,l,i,j,n;
+        cin>>p>>l;
+        n=p-l;
+        set<long long>s;
+
+        for(i=1;i*i<=n;i++)
+        {
+            if(n%i==0 && n/i>l)
+            {
+                s.insert(n/i);
+                if(i>l) s.insert(i);
+            }
+        }
+
+        if(s.size()==0)cout<<"Case "<<cs<<": "<<"impossible"<<"\n";
+        else
+        {
+            cout<<"Case "<<cs<<": ";
+            for(auto it:s)
+            {
+                cout<<it<<" ";
+            }
+            cout<<"\n";
+        }
+    }
+
+}
